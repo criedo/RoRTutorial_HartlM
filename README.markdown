@@ -1,7 +1,7 @@
 <h2>Tutorial: Ruby on Rails - Learn Web Development with Rails<br />
 &nbsp;&nbsp;&nbsp;&nbsp;Michael Hartl<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<code>http://ruby.railstutorial.org/ruby-on-rails-tutorial-book</code><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>=> https://github.com/criedo/RoRTutorial_HartlM</code></h2>
+&nbsp;&nbsp;&nbsp;&nbsp;=> <code>https://github.com/criedo/RoRTutorial_HartlM</code></h2>
 <br />
 <b>ruby -v</b> => ruby 1.9.3p327 (2012-11-10 revision 37606) [x86_64-linux]<br />
 <b>gem -v</b> => 1.8.24<br />
@@ -105,7 +105,7 @@ Enter passphrase (empty for no passphrase):crfr97 [Enter]<br />
 Enter same passphrase again:crfr97 [Enter]<br />
 => The key fingerprint is: 04:d9:79:bc:9e:f8:dc:bf:2a:e6:d6:77:2c:52:ad:77 cfriedo@yahoo.com</i><br />
 <code>sudo apt-get install xclip</code><br />
-<code>xclip -sel clip < ~/.ssh/id_rsa.pub</code><br />
+<code>xclip -sel clip &lt ~/.ssh/id_rsa.pub</code><br />
 <b>into the browser</b>: <code>https://github.com/</code><br />
 <i>Go to your Account Settings<br />
 Click "SSH Keys" in the left sidebar<br />
