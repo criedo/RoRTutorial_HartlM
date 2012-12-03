@@ -105,14 +105,14 @@ Enter passphrase (empty for no passphrase):crfr97 [Enter]<br />
 Enter same passphrase again:crfr97 [Enter]<br />
 => The key fingerprint is: 04:d9:79:bc:9e:f8:dc:bf:2a:e6:d6:77:2c:52:ad:77 cfriedo@yahoo.com</i><br />
 <code>sudo apt-get install xclip</code><br />
-<code>xclip -sel clip &lt ~/.ssh/id_rsa.pub</code><br />
-<b>into the browser</b>: <code>https://github.com/</code><br />
+<code>xclip -sel clip &lt ~/.ssh/id_rsa.pub</code>
+<p><b>into the browser</b>: <code>https://github.com/</code><br />
 <i>Go to your Account Settings<br />
 Click "SSH Keys" in the left sidebar<br />
 Click "Add SSH key"<br />
 Paste your key into the "Key" field<br />
 Click "Add key"<br />
-Confirm the action by entering your GitHub password</i><br />
+Confirm the action by entering your GitHub password</i></p>
 <code>ssh -T git@github.com</code><br />
 => <i>The authenticity of host 'github.com (207.97.227.239)' can't be established.<br />
 # RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.<br />
@@ -124,7 +124,7 @@ Confirm the action by entering your GitHub password</i><br />
 &nbsp;&nbsp;&nbsp;&nbsp;=> <i>ERROR: github [rejected] master -> master (non-fast-forward) error [https://help.github.com/articles/dealing-with-non-fast-forward-errors]<br />
 <code>git push -u origin master --force => <i>Writing objects: 100% (64/64), 27.15 KiB, done.</i></code>
 </li>
-<li><b></b><br />
+<li><b>1.3.5 Branch, edit, commit, merge</b><br />
 <p>into the prompt</b>: <code></code></p>
 <p><b>into the editor</b>: <i>edit</i> </p>
 [<b><i>Warning</i></b>: ]
