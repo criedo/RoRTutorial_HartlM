@@ -35,14 +35,14 @@ http://guides.rubyonrails.org/<br />
 [js] http://nodejs.org/</li>
 <li><b>installing RVM - Rails</b>: <i>convenient to create separate gemsets, which are self-contained bundles of gems</i><br />
 <code>rvm use 1.9.3@rails3tutor --create --default</code><br />
-<code>which gem</code> =&gt; <i>/home/criedo/.rvm/rubies/ruby-1.9.3-p327/bin/gem</i><br />
+<code>which gem</code> =&gt; /home/criedo/.rvm/rubies/ruby-1.9.3-p327/bin/gem<br />
 <code>sudo gedit ~/.gemrc</code><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<i>install: --no-rdoc --no-ri<br />
+<i>&nbsp;&nbsp;&nbsp;&nbsp;install: --no-rdoc --no-ri<br />
 &nbsp;&nbsp;&nbsp;&nbsp;update: --no-rdoc --no-ri</i><br />
 <code>gem install rails -v 3.2.9</code><br />
-<code>rails -v</code> => <i>Rails 3.2.9</i><br />
-<code>sudo apt-get install libxslt-dev libxml2-dev libsqlite3-dev</code> => <i>0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.</i><br />
-<code>rails new first_app</code> => <i>Your bundle is complete! Use `bundle show [gemname]` to see where a bundled gem is installed.</i><br />
+<code>rails -v</code> =&gt; <b>Rails 3.2.9</b><br />
+<code>sudo apt-get install libxslt-dev libxml2-dev libsqlite3-dev</code> =&gt; 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.<br />
+<code>rails new first_app</code> =&gt; Your bundle is complete! Use `bundle show [gemname]` to see where a bundled gem is installed.<br />
 <code>cd first_app/</code><br />
 <code>sudo gedit Gemfile</code><br />
 <i>source 'https://rubygems.org'<br />
@@ -63,9 +63,9 @@ end<br />
 <br />
 gem 'jquery-rails', '2.0.2' [previous: 2.1.4]</i><br />
 <code>bundle install</code><br />
-<code>rails server</code> => <i>ERROR: Could not find a JavaScript runtime</i><br />
+<code>rails server</code> => <i>ERROR</i>: Could not find a JavaScript runtime<br />
 <code>sudo apt-get install nodejs</code><br />
-<code>rails server</code> => <i>[2012-12-02 14:54:49] INFO  WEBrick[ 1.3.1]::HTTPServer#start: pid=6239 port=3000</i></code><br />
+<code>rails server</code> =&gt; [2012-12-02 14:54:49] INFO  WEBrick[ 1.3.1]::HTTPServer#start: pid=6239 port=3000</code><br />
 <p><b>into the browser</b>: <code>http://localhost:3000/</code></p></li>
 <li><b>installing Git</b><br />
 <code>git config --global user.name "criedo"</code><br />
@@ -100,29 +100,29 @@ doc/<br />
 &nbsp;&nbsp;&nbsp;&nbsp;(-f flag to force overwriting the current changes)</i></b></code><br />
 <p><b>Generating SSH Keys</b> [https://help.github.com/articles/generating-ssh-keys#]</p>
 <code>ssh-keygen -t rsa -C "cfriedo@yahoo.com"</code><br />
-<i>Enter file in which to save the key (/home/criedo/.ssh/id_rsa): [Enter]<br />
-Enter passphrase (empty for no passphrase):crfr97 [Enter]<br />
-Enter same passphrase again:crfr97 [Enter]<br />
-=> The key fingerprint is: 04:d9:79:bc:9e:f8:dc:bf:2a:e6:d6:77:2c:52:ad:77 cfriedo@yahoo.com</i><br />
+=&gt; Enter file in which to save the key (/home/criedo/.ssh/id_rsa): [Enter]<br />
+&nbsp;&nbsp;&nbsp;Enter passphrase (empty for no passphrase):crfr97 [Enter]<br />
+&nbsp;&nbsp;&nbsp;Enter same passphrase again:crfr97 [Enter]<br />
+=&gt; The key fingerprint is: 04:d9:79:bc:9e:f8:dc:bf:2a:e6:d6:77:2c:52:ad:77 cfriedo@yahoo.com<br />
 <code>sudo apt-get install xclip</code><br />
 <code>xclip -sel clip &lt ~/.ssh/id_rsa.pub</code>
 <p><b>into the browser</b>: <code>https://github.com/</code><br />
-<i>Go to your Account Settings<br />
+Go to your Account Settings<br />
 Click "SSH Keys" in the left sidebar<br />
 Click "Add SSH key"<br />
 Paste your key into the "Key" field<br />
 Click "Add key"<br />
-Confirm the action by entering your GitHub password</i></p>
+Confirm the action by entering your GitHub password<br />
 <code>ssh -T git@github.com</code><br />
-=> <i>The authenticity of host 'github.com (207.97.227.239)' can't be established.<br />
+=&gt; The authenticity of host 'github.com (207.97.227.239)' can't be established.<br />
 # RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.<br />
 # Are you sure you want to continue connecting (yes/no)?</i><code>yes [Enter]</code><br />
-<i>Hi criedo! You've successfully authenticated, but GitHub does not provide shell access.</i><br />
+Hi criedo! You've successfully authenticated, but GitHub does not provide shell access.</p>
 <p><b>sending code to github.com</b></p>
 <code>git remote add origin git@github.com:criedo/RoRTutorial_HartlM.git</code><br />
 <code>git push -u origin master</code><br />
-&nbsp;&nbsp;&nbsp;&nbsp;=> <i>ERROR: github [rejected] master -> master (non-fast-forward) error [https://help.github.com/articles/dealing-with-non-fast-forward-errors]<br />
-<code>git push -u origin master --force</code> => <i>Writing objects: 100% (64/64), 27.15 KiB, done.</i>
+&nbsp;&nbsp;&nbsp;&nbsp;=&gt; <i>ERROR</i>: github [rejected] master -> master (non-fast-forward) error [https://help.github.com/articles/dealing-with-non-fast-forward-errors]<br />
+<code>git push -u origin master --force</code> =&gt; Writing objects: 100% (64/64), 27.15 KiB, done.
 <li><b>Branch, edit, commit, merge</b><br />
 <i>branches</i> are effectively copies of a repository where we can make changes without modifying the parent files - the full value of branching becomes clear when working on a project with multiple developers<br />
 to create a new topic branch (checkout with the -b flag):<br />
