@@ -35,7 +35,7 @@ http://guides.rubyonrails.org/<br />
 [js] http://nodejs.org/</li>
 <li><b>installing RVM - Rails</b>: <i>convenient to create separate gemsets, which are self-contained bundles of gems</i><br />
 <code>rvm use 1.9.3@rails3tutor --create --default</code><br />
-<code>which gem</code> => <i>/home/criedo/.rvm/rubies/ruby-1.9.3-p327/bin/gem</i><br />
+<code>which gem</code> =&gt; <i>/home/criedo/.rvm/rubies/ruby-1.9.3-p327/bin/gem</i><br />
 <code>sudo gedit ~/.gemrc</code><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<i>install: --no-rdoc --no-ri<br />
 &nbsp;&nbsp;&nbsp;&nbsp;update: --no-rdoc --no-ri</i><br />
@@ -122,11 +122,46 @@ Confirm the action by entering your GitHub password</i></p>
 <code>git remote add origin git@github.com:criedo/RoRTutorial_HartlM.git</code><br />
 <code>git push -u origin master</code><br />
 &nbsp;&nbsp;&nbsp;&nbsp;=> <i>ERROR: github [rejected] master -> master (non-fast-forward) error [https://help.github.com/articles/dealing-with-non-fast-forward-errors]<br />
-<code>git push -u origin master --force => <i>Writing objects: 100% (64/64), 27.15 KiB, done.</i></code>
+<code>git push -u origin master --force</code> => <i>Writing objects: 100% (64/64), 27.15 KiB, done.</i>
+<li><b>Branch, edit, commit, merge</b><br />
+<i>branches</i> are effectively copies of a repository where we can make changes without modifying the parent files - the full value of branching becomes clear when working on a project with multiple developers<br />
+to create a new topic branch (checkout with the -b flag):<br />
+<code>git checkout -b <i>name</i></code><br />
+to lists all the local branches (the asterisk * identifies which the currently branch)<br />
+<code>git branch</code><br />
+after creating the topic branch, edit it to make it a little more descriptive:<br />
+to rename a file in the git:<br />
+<code>git mv <i>old_name</> <i>new_name</i></code><br />
+to comit:<br />
+<code>git add .</code> &lt;=&gt; <code>git commit -a -m "description"</code> [commit -a =&gt; add]<br />
+<b><i>WARNING</i></b>: if any new files are added to the project since the last commit, <i>git add</i> must be used
+<p><b>merge the results back</b><br />
+<code>git checkout master</code><br />
+<code>git merge modify-README</code><br />
+delete the topic branch (it’s quite common to leave the topic branch intact):<br />
+<code>git branch -d <i>name</i></code><br />
+abandon the topic branch changes (the -D flag will delete the branch even though we haven’t merged in the changes):<br />
+<code>git branch -D <i>name</i></code><br />
+after the first push, on most systems the origin master can be ommited:<br />
+<code>git push</code><br /></p></li>
+<li><b>Deploying</b><br />
+deploying (Rails applications used to be a pain) early and often allows us to catch any deployment problems early in our development cycle<br />
+<ul><li>shared hosts or virtual private servers running Phusion Passenger (a module for the Apache and Nginx22 web servers)</li><br />
+<li>full-service deployment companies such as <code>Engine Yard</code> and <code>Rails Machine</code></li><br />
+<li>cloud deployment services such as <code>Engine Yard Cloud</code> and <code><b>Heroku</b></code></li></ul><br />
+Heroku makes deploying Rails applications ridiculously easy—as long as your source code is under version control with Git
+<p><b>Heroku setup</b><br />
+Heroku uses the <code>PostgreSQL</code> database =&gt; need to add (at the end of the file) the pg gem in the production environment:
+<code>sudo gedit Gemfile</code><br />
+<i>group :production do<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gem 'pg', '0.12.2'<br />
+end</i><br />
+
 </li>
-<li><b>1.3.5 Branch, edit, commit, merge</b><br />
-<p>into the prompt</b>: <code></code></p>
+
+<li><b></b><br />
+<p><b>into the prompt</b>: <code></code></p>
 <p><b>into the editor</b>: <i>edit</i> </p>
-[<b><i>Warning</i></b>: ]
+[<b><i>Warning</i></b>: ]&lt;=&gt;
 </li>
 </ul>
