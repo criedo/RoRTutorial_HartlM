@@ -94,16 +94,15 @@ doc/<br />
 <code>git add .</code><br />
 <code>git status</code> => <i># On branch master [...]</i><br />
 <code>git commit -m "Initial commit"</code> => <i>[master (root-commit) 8aa5dcf] Initial commit - 38 files changed, 1265 insertions(+) [...]</i></code><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<b><i>important to note that Git commits are local</i></b><br />
-<code>git log => <i>commit 8aa5dcfd8135afe0d94d6d2b06447a148451e477 [...]</i></code><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<b><i>undo the changes by having Git check out the previous commit with the checkout command<br />
-&nbsp;&nbsp;&nbsp;&nbsp;(-f flag to force overwriting the current changes)</i></b></code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<b>important to note that Git commits are local</b><br />
+<code>git log => commit 8aa5dcfd8135afe0d94d6d2b06447a148451e477 [...]</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;undo the changes by having Git check out the previous commit with the checkout command (-f flag to force overwriting the current changes)</code><br />
 <p><b>Generating SSH Keys</b> [https://help.github.com/articles/generating-ssh-keys#]</p>
 <code>ssh-keygen -t rsa -C "cfriedo@yahoo.com"</code><br />
 =&gt; Enter file in which to save the key (/home/criedo/.ssh/id_rsa): [Enter]<br />
 &nbsp;&nbsp;&nbsp;Enter passphrase (empty for no passphrase):crfr97 [Enter]<br />
 &nbsp;&nbsp;&nbsp;Enter same passphrase again:crfr97 [Enter]<br />
-=&gt; The key fingerprint is: 04:d9:79:bc:9e:f8:dc:bf:2a:e6:d6:77:2c:52:ad:77 cfriedo@yahoo.com<br />
+&nbsp;&nbsp;&nbsp;=&gt; The key fingerprint is: 04:d9:79:bc:9e:f8:dc:bf:2a:e6:d6:77:2c:52:ad:77 cfriedo@yahoo.com<br />
 <code>sudo apt-get install xclip</code><br />
 <code>xclip -sel clip &lt ~/.ssh/id_rsa.pub</code>
 <p><b>into the browser</b>: <code>https://github.com/</code><br />
@@ -113,11 +112,10 @@ Click "Add SSH key"<br />
 Paste your key into the "Key" field<br />
 Click "Add key"<br />
 Confirm the action by entering your GitHub password<br />
-<code>ssh -T git@github.com</code><br />
-=&gt; The authenticity of host 'github.com (207.97.227.239)' can't be established.<br />
-# RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.<br />
-# Are you sure you want to continue connecting (yes/no)?</i><code>yes [Enter]</code><br />
-Hi criedo! You've successfully authenticated, but GitHub does not provide shell access.</p>
+<code>ssh -T git@github.com</code> =&gt; The authenticity of host 'github.com (207.97.227.239)' can't be established.<br />
+&nbsp;&nbsp;&nbsp;# RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.<br />
+&nbsp;&nbsp;&nbsp;# Are you sure you want to continue connecting (yes/no)?</i><code>yes [Enter]</code><br />
+&nbsp;&nbsp;&nbsp;Hi criedo! You've successfully authenticated, but GitHub does not provide shell access.</p>
 <p><b>sending code to github.com</b></p>
 <code>git remote add origin git@github.com:criedo/RoRTutorial_HartlM.git</code><br />
 <code>git push -u origin master</code><br />
@@ -146,9 +144,9 @@ after the first push, on most systems the origin master can be ommited:<br />
 <code>git push</code><br /></p></li>
 <li><b>Deploying</b><br />
 deploying (Rails applications used to be a pain) early and often allows us to catch any deployment problems early in our development cycle<br />
-<ul><li>shared hosts or virtual private servers running Phusion Passenger (a module for the Apache and Nginx22 web servers)</li><br />
-<li>full-service deployment companies such as <code>Engine Yard</code> and <code>Rails Machine</code></li><br />
-<li>cloud deployment services such as <code>Engine Yard Cloud</code> and <code><b>Heroku</b></code></li></ul><br />
+<ul><li>shared hosts or virtual private servers running Phusion Passenger (a module for the Apache and Nginx22 web servers)</li>
+<li>full-service deployment companies such as <code>Engine Yard</code> and <code>Rails Machine</code></li>
+<li>cloud deployment services such as <code>Engine Yard Cloud</code> and <code><b>Heroku</b></code></li></ul>
 Heroku makes deploying Rails applications ridiculously easy—as long as your source code is under version control with Git
 <p><b>Heroku setup</b><br />
 Heroku uses the <code>PostgreSQL</code> database =&gt; need to add (at the end of the file) the pg gem in the production environment:
