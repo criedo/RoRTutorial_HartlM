@@ -106,7 +106,7 @@ doc/<br />
 <code>sudo apt-get install xclip</code><br />
 <code>xclip -sel clip &lt ~/.ssh/id_rsa.pub</code>
 <p><b>into the browser</b>: <code>https://github.com/</code><br />
-<ul></li>Enter and go to Account Settings</li>
+<ul><li>Enter and go to Account Settings</li>
 <li>Click "SSH Keys" in the left sidebar</li>
 <li>Click "Add SSH key"</li>
 <li>Paste your key into the "Key" field</li>
@@ -120,7 +120,7 @@ doc/<br />
 <code>git remote add origin git@github.com:criedo/RoRTutorial_HartlM.git</code><br />
 <code>git push -u origin master</code><br />
 &nbsp;&nbsp;&nbsp;&nbsp;=&gt; <i>ERROR</i>: github [rejected] master -> master (non-fast-forward) error [https://help.github.com/articles/dealing-with-non-fast-forward-errors]<br />
-<code>git push -u origin master --force</code> =&gt; Writing objects: 100% (64/64), 27.15 KiB, done.
+<code>git push -u origin master --force</code> =&gt; Writing objects: 100% (64/64), 27.15 KiB, done.</li>
 <li><b>Branch, edit, commit, merge</b><br />
 <i>branches</i> are effectively copies of a repository where we can make changes without modifying the parent files - the full value of branching becomes clear when working on a project with multiple developers<br />
 <ul><li>to create a new topic branch (checkout with the -b flag):<br />
