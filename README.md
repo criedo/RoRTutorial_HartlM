@@ -161,8 +161,8 @@ end</i><br />
 =&gt; Found existing public key: /home/criedo/.ssh/id_rsa.pub [...]<br />
 &nbsp;&nbsp;&nbsp;Authentication successful.</li>
 <li>[cd ~/projects/RoRTutorial_HartlM] <code>heroku create</code> =&gt; Creating immense-shelf-3538... done, stack is cedar<br />
-&nbsp;&nbsp;&nbsp;http://immense-shelf-3538.herokuapp.com/ | git@heroku.com:immense-shelf-3538.git<br>
-&nbsp;&nbsp;&nbsp;Git remote heroku added<br />
+&nbsp;&nbsp;&nbsp;&nbsp;http://immense-shelf-3538.herokuapp.com/ | git@heroku.com:immense-shelf-3538.git<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Git remote heroku added<br />
 <i>The heroku command line client will be installed into /usr/local/heroku and /usr/local/heroku/bin will be added to your PATH.</i><br />
 <li><code>heroku --version</code> =&gt; <b>heroku-toolbelt/2.33.3 (x86_64-linux) ruby/1.9.3</b></li>
 <li><code>git remote -v</code> =&gt;<br />
@@ -179,34 +179,49 @@ origin	git@github.com:criedo/RoRTutorial_HartlM.git (push)<br /></li>
 <i>Domains</i>: criedo-ror-tutorial.herokuapp.com =&gt; Add (button) [Add your custom domains here then point your DNS to Heroku]<br />
 <i>Error Pages</i>: Error URL (http://s3.amazonaws.com/heroku_pages/error.html); Maintenance URL (http://s3.amazonaws.com/heroku_pages/maintenance.html) =&gt; Save (button)</li>
 <p><b>Deploy your code<b>:</p>
-<code>git push heroku master</code> [https://devcenter.heroku.com/articles/rails3]</li>
-<ul><li>Ensure one dyno running: <code>heroku ps:scale web=1</code> [For each application, Heroku provides 750 free dyno-hours]</li>
-<li>Check the state of the app’s dynos: <code>heroku ps</code></li>
-<li>Visit the app in our browser: <code>heroku open</code></li>
-<li>View the logs: <code>heroku logs</code></li>
+<code>git push heroku master</code> [https://devcenter.heroku.com/articles/rails3]<br />
+&nbsp;&nbsp;&nbsp;&nbsp;=&gt; <i>ERROR</i> (!  No such app [name changed!]): <code>git remote rm heroku</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>git remote add heroku git@heroku.com:criedo-ror-tutorial.git</code>
+&nbsp;&nbsp;&nbsp;&nbsp;<code>git push heroku master</code> =&gt; [...] http://criedo-ror-tutorial.herokuapp.com deployed to Heroku [...]<br />
+<ul><li>[Ensure one dyno running: <code>heroku ps:scale web=1</code>] [For each application, Heroku provides 750 free dyno-hours]</li>
+<li>Check the state of the app’s dynos:<br />
+<code>heroku ps</code> =&gt; [...] web.1: up 2012/12/09 02:11:01 (~ 3m ago)</li>
+<li>Visit the app in our browser:<br />
+<code>heroku open</code> =&gt; open browser =&gt; page: Welcome aboard - You’re riding Ruby on Rails!<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<b><i>Warning</i></b>: [About your application’s environment] =&gt; We're sorry, but something went wrong.</li>
+<li>View the logs: <code>heroku logs</code> =&gt; png host=criedo-ror-tutorial.herokuapp.com fwd=80.180.173.81 dyno=web.1 queue=0 wait=0ms connect=3ms service=12ms status=200 bytes=6646</li>
 <li>Launch a Rails console process: <code>heroku run console</code></li>
 <li>Rake can be run as an attached process exactly like the console: <code>heroku run rake db:migrate</code></li>
-<li>To run on robust webserver Thin (add it to Gemfile)<br />
-<code>sudo gedit Gemfile</code><br />
-<i>gem 'thin'</i><br>
-<code>bundle install</code></li>
+<li>Rails 3.1+ asset pipeline: several options when deploying to Heroku =&gt; [https://devcenter.heroku.com/articles/rails3x-asset-pipeline-cedar]</li></li></ul>
+<p><b>Run on robust webserver Thin</p> (add it to Gemfile):<br />
+<ul><li><code>sudo gedit Gemfile</code><br />
+<i>gem 'thin'</i></li>
+<li><code>bundle install</code></li>
 <li>Change the command used to launch your web process by creating a file called Procfile:<br />
-<i>web: bundle exec rails server thin -p $PORT -e $RACK_ENV</i><br />
-Set the RACK_ENV to development: </i>echo "RACK_ENV=development" >>.env</i><br />
-Test your Procfile locally using Foreman: <code>foreman start</code> =&gt; Listening on 0.0.0.0:5000, CTRL+C to stop<br /></li>
+<code>echo "web: bundle exec rails server thin -p \$PORT -e \$RACK_ENV" > Procfile</code></li>
+<li>Set the RACK_ENV to development:<br />
+<code>echo "RACK_ENV=development" >>.env</code></li>
+<li>Test your Procfile locally using Foreman:<br />
+<code>foreman start</code> =&gt; 08:21:58 web.1  | started with pid 51496<br />
+<b>into the browser</b>: <code>http://localhost:5000/</code> =&gt; Welcome aboard - You’re riding Ruby on Rails!
+&nbsp;&nbsp;&nbsp;&nbsp;Ctrl+C =&gt; [...] Listening on 0.0.0.0:5000, CTRL+C to stop<br /></li>
+<li>deploy your changes to Heroku<br />
+<code>git add .<code><br />
+<code>git commit -m "use thin via procfile"<code><br />
+<code>git push heroku<code><br />
 Check ps to see if the web process uses the new command specifying Thin as the webserver:<br />
 <code>heroku ps</code> =&gt; web.1         starting for 3s     bundle exec rails server thin -p $..<br />
-Rails 3.1+ asset pipeline: several options when deploying to Heroku =&gt; [https://devcenter.heroku.com/articles/rails3x-asset-pipeline-cedar]</li>
 <li>Deploy your changes to Heroku:
 <code>git add .</code><br />
 <code>git commit -m "use thin via procfile"</code><br />
 <code>git push heroku</code><br />
-<li><b>Troubleshooting</b> (heroku ps shows state crashed): check log to find out what went wrong</li>
+<li><b>Troubleshooting</b> (heroku ps shows state crashed): check log to find out what went wrong</li></ul>
+</li>
 </li>
 
 <li><b></b><br />
 <p><b>into the prompt</b>: <code></code></p>
 <p><b>into the editor</b>: <i>edit</i> </p>
-[<b><i>Warning</i></b>: ]&lt;=&gt; =&gt; <i>ERROR</i>: 
+&nbsp;&nbsp;&nbsp;&nbsp;<b><i>Warning</i></b>: &lt;=&gt; =&gt; <i>ERROR</i>: 
 </li>
 </ul>
