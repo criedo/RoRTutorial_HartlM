@@ -1,7 +1,7 @@
-<h2>Tutorial: Ruby on Rails - Learn Web Development with Rails<br />
-&nbsp;&nbsp;&nbsp;&nbsp;Michael Hartl<br />
+<h2>Tutorial: Ruby on Rails - Learn Web Development with Rails</h2>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;Michael Hartl<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<code>http://ruby.railstutorial.org/ruby-on-rails-tutorial-book</code><br />
-&nbsp;&nbsp;&nbsp;&nbsp;=> <code>https://github.com/criedo/RoRTutorial_HartlM</code></h2>
+&nbsp;&nbsp;&nbsp;&nbsp;=> <code>https://github.com/criedo/RoRTutorial_HartlM</code></h3>
 <br />
 <b>ruby -v</b> => ruby 1.9.3p327 (2012-11-10 revision 37606) [x86_64-linux]<br />
 <b>gem -v</b> => 1.8.24<br />
@@ -106,16 +106,16 @@ doc/<br />
 <code>sudo apt-get install xclip</code><br />
 <code>xclip -sel clip &lt ~/.ssh/id_rsa.pub</code>
 <p><b>into the browser</b>: <code>https://github.com/</code><br />
-Enter and go to Account Settings<br />
-Click "SSH Keys" in the left sidebar<br />
-Click "Add SSH key"<br />
-Paste your key into the "Key" field<br />
-Click "Add key"<br />
-Confirm the action by entering your GitHub password<br />
+<ul></li>Enter and go to Account Settings</li>
+<li>Click "SSH Keys" in the left sidebar</li>
+<li>Click "Add SSH key"</li>
+<li>Paste your key into the "Key" field</li>
+<li>Click "Add key"</li>
+<li>Confirm the action by entering your GitHub password<br />
 <code>ssh -T git@github.com</code> =&gt; The authenticity of host 'github.com (207.97.227.239)' can't be established.<br />
 &nbsp;&nbsp;&nbsp;# RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.<br />
 &nbsp;&nbsp;&nbsp;# Are you sure you want to continue connecting (yes/no)?</i><code>yes [Enter]</code><br />
-&nbsp;&nbsp;&nbsp;Hi criedo! You've successfully authenticated, but GitHub does not provide shell access.</p>
+&nbsp;&nbsp;&nbsp;Hi criedo! You've successfully authenticated, but GitHub does not provide shell access.</li></ul>
 <p><b>sending code to github.com</b></p>
 <code>git remote add origin git@github.com:criedo/RoRTutorial_HartlM.git</code><br />
 <code>git push -u origin master</code><br />
@@ -132,7 +132,7 @@ to rename a file in the git:<br />
 <code>git mv <i>old_name</> <i>new_name</i></code><br />
 to comit:<br />
 <code>git add .</code> &lt;=&gt; <code>git commit -a -m "description"</code> [commit -a =&gt; add]<br />
-<b><i>WARNING</i></b>: if any new files are added to the project since the last commit, <i>git add</i> must be used</li>
+<b><i>WARNING</i></b>: if any new files are added to the project since the last commit, <i>git add</i> must be used</li></ul>
 <p><b>merge the results back</b><br />
 <code>git checkout master</code><br />
 <code>git merge <i>name</i></code><br />
