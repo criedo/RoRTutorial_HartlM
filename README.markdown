@@ -73,7 +73,7 @@ gem 'jquery-rails', '2.0.2' [previous: 2.1.4]</i><br />
 <code>git config --global alias.co checkout</code><br />
 <code>git config --global core.editor "sudo gedit"</code><br />
 <code>git config --list</code> => <i>user.name ...</i><br />
-<code>git init</code> => <i>Initialized empty Git repository in /home/criedo/projects/RoRTutorial_HartlM/.git/</i><br />
+<code>git init</code> =&gt; Initialized empty Git repository in /home/criedo/projects/RoRTutorial_HartlM/.git/<br />
 <code>sudo gedit .gitignore</code><br />
 <i># See http://help.github.com/ignore-files/ for more about ignoring files.<br />
 #<br />
@@ -92,10 +92,10 @@ doc/<br />
 *.swp<br />
 *~</i><br />
 <code>git add .</code><br />
-<code>git status</code> => <i># On branch master [...]</i><br />
-<code>git commit -m "Initial commit"</code> => <i>[master (root-commit) 8aa5dcf] Initial commit - 38 files changed, 1265 insertions(+) [...]</i></code><br />
+<code>git status</code> =&gt; # On branch master [...]<br />
+<code>git commit -m "Initial commit"</code> =&gt; [master (root-commit) 8aa5dcf] Initial commit - 38 files changed, 1265 insertions(+) [...]<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<b>important to note that Git commits are local</b><br />
-<code>git log => commit 8aa5dcfd8135afe0d94d6d2b06447a148451e477 [...]</code><br />
+<code>git log</code> =&gt; commit 8aa5dcfd8135afe0d94d6d2b06447a148451e477 [...]<br />
 &nbsp;&nbsp;&nbsp;&nbsp;undo the changes by having Git check out the previous commit with the checkout command (-f flag to force overwriting the current changes)</code><br />
 <p><b>Generating SSH Keys</b> [https://help.github.com/articles/generating-ssh-keys#]</p>
 <code>ssh-keygen -t rsa -C "cfriedo@yahoo.com"</code><br />
@@ -106,7 +106,7 @@ doc/<br />
 <code>sudo apt-get install xclip</code><br />
 <code>xclip -sel clip &lt ~/.ssh/id_rsa.pub</code>
 <p><b>into the browser</b>: <code>https://github.com/</code><br />
-Go to your Account Settings<br />
+Enter and go to Account Settings<br />
 Click "SSH Keys" in the left sidebar<br />
 Click "Add SSH key"<br />
 Paste your key into the "Key" field<br />
@@ -123,25 +123,25 @@ Confirm the action by entering your GitHub password<br />
 <code>git push -u origin master --force</code> =&gt; Writing objects: 100% (64/64), 27.15 KiB, done.
 <li><b>Branch, edit, commit, merge</b><br />
 <i>branches</i> are effectively copies of a repository where we can make changes without modifying the parent files - the full value of branching becomes clear when working on a project with multiple developers<br />
-to create a new topic branch (checkout with the -b flag):<br />
-<code>git checkout -b <i>name</i></code><br />
-to lists all the local branches (the asterisk * identifies which the currently branch)<br />
-<code>git branch</code><br />
-after creating the topic branch, edit it to make it a little more descriptive:<br />
+<ul><li>to create a new topic branch (checkout with the -b flag):<br />
+<code>git checkout -b <i>name</i></code></li>
+<li>to lists all the local branches (the asterisk * identifies which the currently branch)<br />
+<code>git branch</code></li>
+<li>after creating the topic branch, edit it to make it a little more descriptive:<br />
 to rename a file in the git:<br />
 <code>git mv <i>old_name</> <i>new_name</i></code><br />
 to comit:<br />
 <code>git add .</code> &lt;=&gt; <code>git commit -a -m "description"</code> [commit -a =&gt; add]<br />
-<b><i>WARNING</i></b>: if any new files are added to the project since the last commit, <i>git add</i> must be used
+<b><i>WARNING</i></b>: if any new files are added to the project since the last commit, <i>git add</i> must be used</li>
 <p><b>merge the results back</b><br />
 <code>git checkout master</code><br />
-<code>git merge modify-README</code><br />
-delete the topic branch (it’s quite common to leave the topic branch intact):<br />
-<code>git branch -d <i>name</i></code><br />
-abandon the topic branch changes (the -D flag will delete the branch even though we haven’t merged in the changes):<br />
-<code>git branch -D <i>name</i></code><br />
-after the first push, on most systems the origin master can be ommited:<br />
-<code>git push</code><br /></p></li>
+<code>git merge <i>name</i></code><br />
+<ul><li>to delete the topic branch (it’s quite common to leave the topic branch intact):<br />
+<code>git branch -d <i>name</i></code></li>
+<li>to abandon the topic branch changes (the -D flag will delete the branch even though we haven’t merged in the changes):<br />
+<code>git branch -D <i>name</i></code></li>
+<li>after the first push, on most systems the origin master can be ommited:<br />
+<code>git push</code><br /></p></li></ul></li>
 <li><b>Deploying</b><br />
 deploying (Rails applications used to be a pain) early and often allows us to catch any deployment problems early in our development cycle<br />
 <ul><li>shared hosts or virtual private servers running Phusion Passenger (a module for the Apache and Nginx22 web servers)</li>
