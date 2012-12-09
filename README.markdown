@@ -163,13 +163,20 @@ end</i><br />
 <li>[cd ~/projects/RoRTutorial_HartlM] <code>heroku create</code> =&gt; Creating immense-shelf-3538... done, stack is cedar<br />
 &nbsp;&nbsp;&nbsp;http://immense-shelf-3538.herokuapp.com/ | git@heroku.com:immense-shelf-3538.git<br>
 &nbsp;&nbsp;&nbsp;Git remote heroku added<br />
-<i>The heroku command line client will be installed into /usr/local/heroku and /usr/local/heroku/bin will be added to your PATH.</i></li>
-<li>Change settings:<br />
-<i>Name</i>: criedo-ror-tutorial =&gt; Rename (button)<br />
+<i>The heroku command line client will be installed into /usr/local/heroku and /usr/local/heroku/bin will be added to your PATH.</i><br />
+<li><code>heroku --version</code> =&gt; <b>heroku-toolbelt/2.33.3 (x86_64-linux) ruby/1.9.3</b></li>
+<code>git remote -v</code> =&gt;<br />
+heroku	git@heroku.com:immense-shelf-3538.git (fetch)<br />
+heroku	git@heroku.com:immense-shelf-3538.git (push)<br />
+origin	git@github.com:criedo/RoRTutorial_HartlM.git (fetch)<br />
+origin	git@github.com:criedo/RoRTutorial_HartlM.git (push)<br /></li>
+<li>to associate a Git repo with an existing application (used with an existing Git repo to add a remote): <code>heroku git:remote -a <i>name</i></code></li>
+<li>Using origin as the remote name will allow you to type just <code>git push</code> instead of <code>git push heroku</code>, but we recommend using an explicitly named remote</li></ul>
+<p><b>Change settings</b>:</p>
+<ul></li><i>Name</i>: criedo-ror-tutorial =&gt; Rename (button)<br />
 <i>GitHub Repo</i>: criedo/RoRTutorial_HartlM.git =&gt; Save (button)<br />
 <i>Domains</i>: criedo-ror-tutorial.herokuapp.com =&gt; Add (button) [Add your custom domains here then point your DNS to Heroku]<br />
 <i>Error Pages</i>: Error URL (http://s3.amazonaws.com/heroku_pages/error.html); Maintenance URL (http://s3.amazonaws.com/heroku_pages/maintenance.html) =&gt; Save (button)</li>
-<li><code>heroku --version</code> =&gt; <b>heroku-toolbelt/2.33.3 (x86_64-linux) ruby/1.9.3</b></li>
 <li>Deploy your code: <code>git push heroku master</code> [https://devcenter.heroku.com/articles/rails3]</li>
 <li>Ensure one dyno running: <code>heroku ps:scale web=1</code> [For each application, Heroku provides 750 free dyno-hours]</li>
 <li>Check the state of the app’s dynos: <code>heroku ps</code></li>
@@ -184,17 +191,15 @@ end</i><br />
 <li>Change the command used to launch your web process by creating a file called Procfile:<br />
 <i>web: bundle exec rails server thin -p $PORT -e $RACK_ENV</i><br />
 Set the RACK_ENV to development: </i>echo "RACK_ENV=development" >>.env</i><br />
-Test your Procfile locally using Foreman: <code>foreman start</code> =&gt; Listening on 0.0.0.0:5000, CTRL+C to stop<br />
-Deploy your changes to Heroku:<br />
+Test your Procfile locally using Foreman: <code>foreman start</code> =&gt; Listening on 0.0.0.0:5000, CTRL+C to stop<br /></li></ul>
+<p><b>Deploy your changes to Heroku</b>:</p>
 <code>git add .</code><br />
 <code>git commit -m "use thin via procfile"</code><br />
 <code>git push heroku</code><br />
 Check ps to see if the web process uses the new command specifying Thin as the webserver:<br />
-<code>heroku ps<code> =&gt; web.1         starting for 3s     bundle exec rails server thin -p $..<br />
-Rails 3.1+ asset pipeline: several options for invoking the Rails 3.1+ asset pipeline when deploying to Heroku =&gt; [https://devcenter.heroku.com/articles/rails3x-asset-pipeline-cedar]
-Troubleshooting (heroku ps shows state crashed): check log to find out what went wrong</li>
-<li><code></code></li>
-</ul>
+<code>heroku ps</code> =&gt; web.1         starting for 3s     bundle exec rails server thin -p $..<br />
+Rails 3.1+ asset pipeline: several options when deploying to Heroku =&gt; [https://devcenter.heroku.com/articles/rails3x-asset-pipeline-cedar]
+<p><b>Troubleshooting</b> (heroku ps shows state crashed): check log to find out what went wrong</p>
 </li>
 
 <li><b></b><br />
