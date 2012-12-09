@@ -193,15 +193,15 @@ origin	git@github.com:criedo/RoRTutorial_HartlM.git (push)<br /></li>
 <li>Change the command used to launch your web process by creating a file called Procfile:<br />
 <i>web: bundle exec rails server thin -p $PORT -e $RACK_ENV</i><br />
 Set the RACK_ENV to development: </i>echo "RACK_ENV=development" >>.env</i><br />
-Test your Procfile locally using Foreman: <code>foreman start</code> =&gt; Listening on 0.0.0.0:5000, CTRL+C to stop<br /></li></ul>
-<p><b>Deploy your changes to Heroku</b>:</p>
+Test your Procfile locally using Foreman: <code>foreman start</code> =&gt; Listening on 0.0.0.0:5000, CTRL+C to stop<br /></li>
+<li><p><b>Deploy your changes to Heroku</b>:</p>
 <code>git add .</code><br />
 <code>git commit -m "use thin via procfile"</code><br />
 <code>git push heroku</code><br />
 Check ps to see if the web process uses the new command specifying Thin as the webserver:<br />
 <code>heroku ps</code> =&gt; web.1         starting for 3s     bundle exec rails server thin -p $..<br />
-Rails 3.1+ asset pipeline: several options when deploying to Heroku =&gt; [https://devcenter.heroku.com/articles/rails3x-asset-pipeline-cedar]
-<p><b>Troubleshooting</b> (heroku ps shows state crashed): check log to find out what went wrong</p>
+Rails 3.1+ asset pipeline: several options when deploying to Heroku =&gt; [https://devcenter.heroku.com/articles/rails3x-asset-pipeline-cedar]</li>
+<li><b>Troubleshooting</b> (heroku ps shows state crashed): check log to find out what went wrong</li>
 </li>
 
 <li><b></b><br />
