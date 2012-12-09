@@ -165,20 +165,22 @@ end</i><br />
 &nbsp;&nbsp;&nbsp;Git remote heroku added<br />
 <i>The heroku command line client will be installed into /usr/local/heroku and /usr/local/heroku/bin will be added to your PATH.</i><br />
 <li><code>heroku --version</code> =&gt; <b>heroku-toolbelt/2.33.3 (x86_64-linux) ruby/1.9.3</b></li>
-<code>git remote -v</code> =&gt;<br />
+<li><code>git remote -v</code> =&gt;<br />
 heroku	git@heroku.com:immense-shelf-3538.git (fetch)<br />
 heroku	git@heroku.com:immense-shelf-3538.git (push)<br />
 origin	git@github.com:criedo/RoRTutorial_HartlM.git (fetch)<br />
 origin	git@github.com:criedo/RoRTutorial_HartlM.git (push)<br /></li>
-<li>to associate a Git repo with an existing application (used with an existing Git repo to add a remote): <code>heroku git:remote -a <i>name</i></code></li>
-<li>Using origin as the remote name will allow you to type just <code>git push</code> instead of <code>git push heroku</code>, but we recommend using an explicitly named remote</li></ul>
+<li>to associate a Git repo with an existing application (used with an existing Git repo to add a remote):<br />
+<code>heroku git:remote -a <i>name</i></code></li>
+<li>using origin as the remote name will allow you to type just <code>git push</code> instead of <code>git push heroku</code>, but we recommend using an explicitly named remote</li></ul>
 <p><b>Change settings</b>:</p>
-<ul></li><i>Name</i>: criedo-ror-tutorial =&gt; Rename (button)<br />
+<i>Name</i>: criedo-ror-tutorial =&gt; Rename (button)<br />
 <i>GitHub Repo</i>: criedo/RoRTutorial_HartlM.git =&gt; Save (button)<br />
 <i>Domains</i>: criedo-ror-tutorial.herokuapp.com =&gt; Add (button) [Add your custom domains here then point your DNS to Heroku]<br />
 <i>Error Pages</i>: Error URL (http://s3.amazonaws.com/heroku_pages/error.html); Maintenance URL (http://s3.amazonaws.com/heroku_pages/maintenance.html) =&gt; Save (button)</li>
-<li>Deploy your code: <code>git push heroku master</code> [https://devcenter.heroku.com/articles/rails3]</li>
-<li>Ensure one dyno running: <code>heroku ps:scale web=1</code> [For each application, Heroku provides 750 free dyno-hours]</li>
+<p><b>Deploy your code<b>:</p>
+<code>git push heroku master</code> [https://devcenter.heroku.com/articles/rails3]</li>
+<ul><li>Ensure one dyno running: <code>heroku ps:scale web=1</code> [For each application, Heroku provides 750 free dyno-hours]</li>
 <li>Check the state of the app’s dynos: <code>heroku ps</code></li>
 <li>Visit the app in our browser: <code>heroku open</code></li>
 <li>View the logs: <code>heroku logs</code></li>
