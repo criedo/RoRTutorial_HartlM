@@ -120,7 +120,7 @@ doc/<br />
 <code>git remote add origin git@github.com:criedo/RoRTutorial_HartlM.git</code><br />
 <code>git push -u origin master</code><br />
 &nbsp;&nbsp;&nbsp;&nbsp;=&gt; <i>ERROR</i>: github [rejected] master -> master (non-fast-forward) error [https://help.github.com/articles/dealing-with-non-fast-forward-errors]<br />
-<code>git push -u origin master --force</code> =&gt; Writing objects: 100% (64/64), 27.15 KiB, done.</li>
+<code>git push -u origin master --force</code> =&gt; Writing objects: 100% (64/64), 27.15 KiB, done.<br /></li>
 <li><b>Branch, edit, commit, merge</b><br />
 <i>branches</i> are effectively copies of a repository where we can make changes without modifying the parent files - the full value of branching becomes clear when working on a project with multiple developers<br />
 <ul><li>to create a new topic branch (checkout with the -b flag):<br />
@@ -154,12 +154,52 @@ Heroku uses the <code>PostgreSQL</code> database =&gt; need to add (at the end o
 <i>group :production do<br />
 &nbsp;&nbsp;&nbsp;&nbsp;gem 'pg', '0.12.2'<br />
 end</i><br />
-
+<code>bundle install --without production</code> (<i>--without production</i> prevents the local installation of any production gems)<br />
+<ul><li>create Heroku account and confirm it (email)</li>
+<li>[https://toolbelt.heroku.com/debian] <code>https://toolbelt.heroku.com/debian</code></li>
+<li><code>heroku login</code> =&gt; Enter email/password<br />
+=&gt; Found existing public key: /home/criedo/.ssh/id_rsa.pub [...]<br />
+&nbsp;&nbsp;&nbsp;Authentication successful.</li>
+<li>[cd ~/projects/RoRTutorial_HartlM] <code>heroku create</code> =&gt; Creating immense-shelf-3538... done, stack is cedar<br />
+&nbsp;&nbsp;&nbsp;http://immense-shelf-3538.herokuapp.com/ | git@heroku.com:immense-shelf-3538.git<br>
+&nbsp;&nbsp;&nbsp;Git remote heroku added<br />
+<i>The heroku command line client will be installed into /usr/local/heroku and /usr/local/heroku/bin will be added to your PATH.</i></li>
+<li>Change settings:<br />
+<i>Name</i>: criedo-ror-tutorial =&gt; Rename (button)<br />
+<i>GitHub Repo</i>: criedo/RoRTutorial_HartlM.git =&gt; Save (button)<br />
+<i>Domains</i>: criedo-ror-tutorial.herokuapp.com =&gt; Add (button) [Add your custom domains here then point your DNS to Heroku]<br />
+<i>Error Pages</i>: Error URL (http://s3.amazonaws.com/heroku_pages/error.html); Maintenance URL (http://s3.amazonaws.com/heroku_pages/maintenance.html) =&gt; Save (button)</li>
+<li><code>heroku --version</code> =&gt; <b>heroku-toolbelt/2.33.3 (x86_64-linux) ruby/1.9.3</b></li>
+<li>Deploy your code: <code>git push heroku master</code> [https://devcenter.heroku.com/articles/rails3]</li>
+<li>Ensure one dyno running: <code>heroku ps:scale web=1</code> [For each application, Heroku provides 750 free dyno-hours]</li>
+<li>Check the state of the app’s dynos: <code>heroku ps</code></li>
+<li>Visit the app in our browser: <code>heroku open</code></li>
+<li>View the logs: <code>heroku logs</code></li>
+<li>Launch a Rails console process: <code>heroku run console</code></li>
+<li>Rake can be run as an attached process exactly like the console: <code>heroku run rake db:migrate</code></li>
+<li>To run on robust webserver Thin (add it to Gemfile)<br />
+<code>sudo gedit Gemfile</code><br />
+<i>gem 'thin'</i><br>
+<code>bundle install</code></li>
+<li>Change the command used to launch your web process by creating a file called Procfile:<br />
+<i>web: bundle exec rails server thin -p $PORT -e $RACK_ENV</i><br />
+Set the RACK_ENV to development: </i>echo "RACK_ENV=development" >>.env</i><br />
+Test your Procfile locally using Foreman: <code>foreman start</code> =&gt; Listening on 0.0.0.0:5000, CTRL+C to stop<br />
+Deploy your changes to Heroku:<br />
+<code>git add .</code><br />
+<code>git commit -m "use thin via procfile"</code><br />
+<code>git push heroku</code><br />
+Check ps to see if the web process uses the new command specifying Thin as the webserver:<br />
+<code>heroku ps<code> =&gt; web.1         starting for 3s     bundle exec rails server thin -p $..<br />
+Rails 3.1+ asset pipeline: several options for invoking the Rails 3.1+ asset pipeline when deploying to Heroku =&gt; [https://devcenter.heroku.com/articles/rails3x-asset-pipeline-cedar]
+Troubleshooting (heroku ps shows state crashed): check log to find out what went wrong</li>
+<li><code></code></li>
+</ul>
 </li>
 
 <li><b></b><br />
 <p><b>into the prompt</b>: <code></code></p>
 <p><b>into the editor</b>: <i>edit</i> </p>
-[<b><i>Warning</i></b>: ]&lt;=&gt;
+[<b><i>Warning</i></b>: ]&lt;=&gt; =&gt; <i>ERROR</i>: 
 </li>
 </ul>
